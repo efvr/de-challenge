@@ -6,15 +6,15 @@ import org.apache.beam.sdk.options.PipelineOptions;
 import org.apache.beam.sdk.options.Validation;
 
 public interface ExecutorOptions extends PipelineOptions {
-    @Description("Path of the file to read from")
+    @Description("Path of the console files to read from")
     @Validation.Required
-    String getInputData();
-    void setInputData(String inputData);
+    String getInputConsoleData();
+    void setInputConsoleData(String inputConsoleData);
 
-    @Description("Path of the file to read from")
-    String getOutputFormat();
-    @Default.String("avro")
-    void setOutputFormat(String outputFormat);
+    @Description("Path of the result files to read from")
+    @Validation.Required
+    String getInputResultData();
+    void setInputResultData(String inputResultData);
 
     @Description("Path of the file to write to")
     @Validation.Required

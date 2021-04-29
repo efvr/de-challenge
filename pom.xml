@@ -10,7 +10,6 @@
 
   <modules>
     <module>parent-pom</module>
-<!--    <module>schema</module>-->
     <module>dataflow</module>
   </modules>
 

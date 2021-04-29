@@ -6,27 +6,13 @@
 <parent>
     <groupId>com.walmart.org.dataeng-challenge</groupId>
     <artifactId>parent-pom</artifactId>
-    <version>c</version>
+    <version>1.0.0</version>
     <relativePath>../parent-pom/pom.xml</relativePath>
 </parent>
 
 <artifactId>dataflow</artifactId>
 <packaging>jar</packaging>
 <name>DE Challenge - dataflow</name>
-
-<repositories>
-    <repository>
-        <id>apache.snapshots</id>
-        <name>Apache Development Snapshot Repository</name>
-        <url>https://repository.apache.org/content/repositories/snapshots/</url>
-        <releases>
-            <enabled>false</enabled>
-        </releases>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-    </repository>
-</repositories>
 
 <build>
     <plugins>
