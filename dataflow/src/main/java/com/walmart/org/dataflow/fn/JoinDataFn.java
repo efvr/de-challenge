@@ -19,22 +19,25 @@ public class JoinDataFn extends DoFn<Result, GameRecord> {
     }
 
     @ProcessElement
-    public void processElement(ProcessContext c) {
+    public void processElement(ProcessContext c) throws Exception {
         List<Console> sideInput = c.sideInput(this.view);
         GameRecord gameRecord = new GameRecord();
 
-        if(sideInput != null){
-            gameRecord.setConsole(Objects.requireNonNull(c.element()).getConsole());
-            gameRecord.setCompany(Utils.getCompanyName(sideInput,Objects.requireNonNull(c.element()).getConsole()));
-            gameRecord.setDate(Objects.requireNonNull(c.element()).getDate());
-            gameRecord.setMetascore(Objects.requireNonNull(c.element()).getMetascore());
-            gameRecord.setName(Objects.requireNonNull(c.element()).getName());
-            gameRecord.setUserscore(Objects.requireNonNull(c.element()).getUserscore());
+        try {
+            if (sideInput.size() > 0) {
+                gameRecord.setConsole(Objects.requireNonNull(c.element()).getConsole().trim());
+                if(!gameRecord.getConsole().isEmpty()){
+                    gameRecord.setCompany(Utils.getCompanyName(sideInput, gameRecord.getConsole()));
+                }
+                gameRecord.setDate(Objects.requireNonNull(c.element()).getDate());
+                gameRecord.setMetascore(Objects.requireNonNull(c.element()).getMetascore());
+                gameRecord.setName(Objects.requireNonNull(c.element()).getName());
+                gameRecord.setUserscore(Objects.requireNonNull(c.element()).getUserscore());
+
+                c.output(gameRecord);
+            }
+        } catch (Exception e){
+            throw new Exception("Please check the record of this game: ["+ c.element().getName()+"]");
         }
-
-        c.output(gameRecord);
     }
-
-
-
 }

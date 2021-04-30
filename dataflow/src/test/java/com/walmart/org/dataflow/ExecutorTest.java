@@ -10,8 +10,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @RunWith(JUnit4.class)
 public class ExecutorTest {
@@ -29,6 +27,7 @@ public class ExecutorTest {
         options.setInputResultData("/home/francisco/Documents/de-challenge/data/result.csv");
         options.setJobName("test-job");
         options.setOutputData("/home/francisco/Documents/de-challenge/output/");
+        options.setNTop(3);
     }
 
     @Test
@@ -36,5 +35,7 @@ public class ExecutorTest {
        Executor executor = new Executor();
        executor.processData(options);
     }
+
+
 
 }

@@ -16,6 +16,11 @@ public interface ExecutorOptions extends PipelineOptions {
     String getInputResultData();
     void setInputResultData(String inputResultData);
 
+    @Description("Top n° best/worst games. Default value is 10")
+    @Default.Integer(10)
+    Integer getNTop();
+    void setNTop(Integer inputResultData);
+
     @Description("Path of the file to write to")
     @Validation.Required
     String getOutputData();
