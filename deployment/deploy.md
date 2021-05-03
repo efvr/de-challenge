@@ -1,4 +1,5 @@
 #Summary
+
 This pipeline take csv data as input and then transform it. 
 Joining in first place the result data and consoles data. 
 Then the games are grouped by Company and Console and gets the N top/worst games.
