@@ -1,0 +1,18 @@
+{
+    "type": "record",
+    "name": "TopWorstByCompanyConsole",
+    "namespace": "com.walmart.org.dataengchallenge",
+    "fields": [
+        {
+            "name": "Company",
+            "type": "string"
+        },{
+            "name": "Console",
+            "type": "string"
+        }
+        ,{
+            "name": "Gamelist",
+            "type": {"items": "com.walmart.org.dataengchallenge.GameWithoutCompanyConsole", "type":"array" }
+        }
+    ]
+}

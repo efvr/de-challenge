@@ -19,7 +19,12 @@ public interface ExecutorOptions extends PipelineOptions {
     @Description("Top n° best/worst games. Default value is 10")
     @Default.Integer(10)
     Integer getNTop();
-    void setNTop(Integer inputResultData);
+    void setNTop(Integer nTop);
+
+    @Description("If \"tdb\" score should be included. Default is false.")
+    @Default.Boolean(false)
+    Boolean getIncludeTBDScore();
+    void setIncludeTBDScore(Boolean includeTBDScore);
 
     @Description("Path of the file to write to")
     @Validation.Required

@@ -1,0 +1,20 @@
+{
+    "type": "record",
+    "name": "OutputRecord",
+    "namespace": "com.walmart.org.dataengchallenge",
+    "fields": [
+        {
+            "name": "topGames",
+            "type": {"items": "com.walmart.org.dataengchallenge.GameRecord", "type":"array" }
+        },{
+            "name": "worstGames",
+            "type": {"items": "com.walmart.org.dataengchallenge.GameRecord", "type":"array" }
+        },{
+            "name": "topGamesByCompanyConsole",
+            "type": {"items": "com.walmart.org.dataengchallenge.TopWorstByCompanyConsole", "type":"array" }
+        },{
+            "name": "worstGamesByCompanyConsole",
+            "type": {"items": "com.walmart.org.dataengchallenge.TopWorstByCompanyConsole", "type":"array" }
+        }
+    ]
+}

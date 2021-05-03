@@ -27,7 +27,7 @@ public class ExecutorTest {
         options.setInputResultData("/home/francisco/Documents/de-challenge/data/result.csv");
         options.setJobName("test-job");
         options.setOutputData("/home/francisco/Documents/de-challenge/output/");
-        options.setNTop(3);
+        options.setNTop(5);
     }
 
     @Test

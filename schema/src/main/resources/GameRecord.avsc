@@ -1,0 +1,12 @@
+{"namespace": "com.walmart.org.dataengchallenge",
+ "type": "record",
+ "name": "GameRecord",
+ "fields": [
+     {"name": "name", "type": "string"},
+     {"name": "metaScore",  "type": ["int", "null"]},
+     {"name": "console", "type": "string"},
+     {"name": "company", "type": "string"},
+     {"name": "userScore",  "type": ["float", "null"]},
+     {"name": "date", "type": "string"}
+ ]
+}

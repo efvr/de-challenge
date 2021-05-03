@@ -237,6 +237,12 @@
         <scope>compile</scope>
     </dependency>
 
+    <dependency>
+        <groupId>com.walmart.org.dataeng-challenge</groupId>
+        <artifactId>schema</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+
 </dependencies>
 
 </project>

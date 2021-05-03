@@ -1,5 +1,7 @@
 package com.walmart.org.dataflow.fn;
 
+import com.walmart.org.dataflow.fn.split.SplitConsoleFn;
+import com.walmart.org.dataflow.fn.split.SplitResultFn;
 import com.walmart.org.dataflow.objects.Console;
 import com.walmart.org.dataflow.objects.Result;
 import org.apache.beam.sdk.Pipeline;
@@ -46,7 +48,7 @@ public class FnTest {
 
         PCollection<Result> output =
                 pipeline.apply(Create.of(resultData).withCoder(StringUtf8Coder.of()))
-                        .apply(ParDo.of(new SplitResultFn()));
+                        .apply(ParDo.of(new SplitResultFn(false)));
 
         PAssert.thatSingleton(output.apply("Count", Count.globally())).isEqualTo(2L);
 
@@ -61,7 +63,7 @@ public class FnTest {
 
         PCollection<Result> output =
                 pipeline.apply(Create.of(resultData).withCoder(StringUtf8Coder.of()))
-                        .apply(ParDo.of(new SplitResultFn()));
+                        .apply(ParDo.of(new SplitResultFn(false)));
 
         pipeline.run();
     }
