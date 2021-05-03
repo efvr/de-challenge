@@ -9,6 +9,7 @@ The output data is in avro format (check the schema in `de-challenge/schema/reso
 but to show the data itself in `commands_docker.sh` or `commands_manual_run.sh` scripts 
 the data is transformed as json using avro-tools jar.
 
+
 #How to run it using Docker
 
 You need already installed docker in your computer.
