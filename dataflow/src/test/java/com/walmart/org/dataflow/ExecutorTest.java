@@ -37,11 +37,10 @@ public class ExecutorTest {
         PipelineOptionsFactory.register(ExecutorOptions.class);
         options = PipelineOptionsFactory.as(ExecutorOptions.class);
         options = TestPipeline.testingPipelineOptions().as(ExecutorOptions.class);
-        options.setInputConsoleData("/home/francisco/Documents/de-challenge/data/consoles.csv");
-        options.setInputResultData("/home/francisco/Documents/de-challenge/data/result.csv");
+        options.setInputConsoleData("src/test/resources/data/consoles.csv");
+        options.setInputResultData("src/test/resources/data/result.csv");
         options.setJobName("test-job");
-//        options.setOutputData(temporaryOutputPath);
-        options.setOutputData("/home/francisco/Documents/de-challenge/output");
+        options.setOutputData(temporaryOutputPath);
         options.setNTop(5);
     }
 
@@ -50,12 +49,11 @@ public class ExecutorTest {
         Executor executor = new Executor();
         PipelineResult.State executionState = executor.processData(options);
 
-//        PCollection<OutputRecord> outputData = pipeline
-//                .apply("reading output data",
-//                        AvroIO.read(OutputRecord.class).from(options.getOutputData()+"/*"));
-//
-//        PAssert.that(outputData.apply("Count records", Count.globally())).containsInAnyOrder(1L);
+        PCollection<OutputRecord> outputData = pipeline
+                .apply("reading output data",
+                        AvroIO.read(OutputRecord.class).from(options.getOutputData()+"*.avro"));
 
+        PAssert.that(outputData.apply("Count records", Count.globally())).containsInAnyOrder(1L);
         Assert.assertEquals(PipelineResult.State.DONE,executionState);
 
         pipeline.run().waitUntilFinish();

@@ -116,7 +116,7 @@ public class Executor {
                     worstNGamesByCompanyConsoleTupleTag,
                     topNGamesTupleTag,
                     worstNGamesTupleTag)))
-                .apply("write data", AvroIO
+                .apply("Write data", AvroIO
                         .write(OutputRecord.class)
                         .to(options.getOutputData())
                         .withNumShards(1)
