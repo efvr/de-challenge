@@ -47,9 +47,19 @@
         <!-- Ensure that the Maven jar plugin runs before the Maven
           shade plugin by listing the plugin higher within the file. -->
         <plugin>
+            <!-- Build an executable JAR -->
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
             <version>${maven-jar-plugin.version}</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <classpathPrefix>lib/</classpathPrefix>
+                        <mainClass>com.walmart.org.dataflow.Executor</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
         </plugin>
 
         <!--
